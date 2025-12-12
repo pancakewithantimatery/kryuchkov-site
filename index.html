@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kryuchkov.com — under construction</title>
+    <style>
+        :root {
+            --bg-light: #ffffff;
+            --text-light: #222222;
+
+            --bg-dark: #111111;
+            --text-dark: #eaeaea;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: background 0.3s ease, color 0.3s ease;
+            background: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .text {
+            text-align: center;
+            font-size: 22px;
+            line-height: 1.4;
+            opacity: 0.9;
+            transition: color 0.3s ease;
+        }
+
+        .domain {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            font-size: 26px;
+            line-height: 1;
+            opacity: 0.8;
+            color: inherit;
+            transition: opacity 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+
+<div class="text">
+    <div class="domain">kryuchkov.com</div>
+    is still waking up…<br>
+    but will be alive soon 🙂
+</div>
+
+<script>
+    const toggleButton = document.querySelector('.theme-toggle');
+    let darkMode = true; // dark mode ON by default
+
+    function applyTheme() {
+        if (darkMode) {
+            document.body.style.background = "var(--bg-dark)";
+            document.body.style.color = "var(--text-dark)";
+            toggleButton.textContent = "☀️";
+        } else {
+            document.body.style.background = "var(--bg-light)";
+            document.body.style.color = "var(--text-light)";
+            toggleButton.textContent = "🌙";
+        }
+    }
+
+    function toggleTheme() {
+        darkMode = !darkMode;
+        applyTheme();
+    }
+
+    // Apply initial dark theme
+    applyTheme();
+</script>
+
+</body>
+</html>
